@@ -1,0 +1,94 @@
+$calendar_width: 900px
+
+*
+  // border: 1px solid black
+  box-sizing: border-box
+
+html, body
+  margin: 0px
+  padding: 0px
+  background-color: #eee
+  
+.head
+  width: 100%
+  line-height: 70px
+  position: fixed
+  top: 0px
+  padding: 30px
+  .date
+    display: inline-block
+    float: left
+    width: calc(100% - 200px)
+    p
+      display: inline-block
+      margin: 0px
+      font-weight: bold
+  .buttons
+    display: inline-block
+    box-sizing: border-box
+    width: 200px
+    text-align: right
+    button
+      background-color: transparent
+      border: 0px
+      &:hover
+        background-color: #ddd
+    floar: left
+    .fa-bars
+      transform: rotate(90deg)
+    
+  
+.calendar
+  width: $calendar_width
+  height: 600px
+  margin-left: auto
+  margin-right: auto
+  margin-top: 120px
+  background-color: white
+  border-radius: 10px
+  box-shadow: 10px 10px 15px rgba(0,0,0,0.3)
+  overflow: scroll
+  .top, .detail
+    width: $calendar_width
+    position: relative
+    div
+      display: table-cell
+      padding: 10px
+      width: calc(( #{$calendar_width} - 60px) / 7)
+      border: 1px solid rgba(0,0,0,0.1)
+      border-right: 0px
+      border-top: 0px
+    .first
+      width: 60px
+      border-left: 0px
+  .top
+    div
+      height: 140px
+      p
+        font-size: 30px
+        margin: 0px
+  .detail
+    .first
+      border-color: transparent
+      position: relative
+    div
+      padding: 10px
+      height: 100px
+    p
+      color: rgba(0,0,0,0.5)
+      font-weight: bold
+      position: absolute
+      margin: 0px 10px 0px 0px
+      bottom: -10px
+      right: 0px
+      
+
+      
+      
+  
+  
+  
+  
+  
+  
+  
