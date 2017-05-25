@@ -1,47 +1,40 @@
 * {
-  box-sizing: border-box;
-}
+  box-sizing: border-box; }
 
 html, body {
   margin: 0px;
   padding: 0px;
-  background-color: #eee;
-}
+  background-color: #eee; }
 
 .head {
   width: 100%;
   line-height: 70px;
   position: fixed;
   top: 0px;
-  padding: 30px;
-}
-.head .date {
-  display: inline-block;
-  float: left;
-  width: calc(100% - 200px);
-}
-.head .date p {
-  display: inline-block;
-  margin: 0px;
-  font-weight: bold;
-}
-.head .buttons {
-  display: inline-block;
-  box-sizing: border-box;
-  width: 200px;
-  text-align: right;
-  floar: left;
-}
-.head .buttons button {
-  background-color: transparent;
-  border: 0px;
-}
-.head .buttons button:hover {
-  background-color: #ddd;
-}
-.head .buttons .fa-bars {
-  transform: rotate(90deg);
-}
+  padding: 30px; }
+  .head .date {
+    display: inline-block;
+    float: left;
+    width: calc(100% - 200px); }
+    .head .date p {
+      display: inline-block;
+      margin: 0px;
+      font-weight: bold; }
+  .head .buttons {
+    display: inline-block;
+    box-sizing: border-box;
+    width: 200px;
+    text-align: right;
+    floar: left; }
+    .head .buttons button {
+      background-color: transparent;
+      border: 0px; }
+      .head .buttons button:hover {
+        background-color: #ddd; }
+    .head .buttons .fa-bars {
+      -webkit-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+      transform: rotate(90deg); }
 
 .calendar {
   width: 900px;
@@ -53,43 +46,41 @@ html, body {
   border-radius: 10px;
   box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
   overflow: scroll;
-}
-.calendar .top, .calendar .detail {
-  width: 900px;
-  position: relative;
-}
-.calendar .top div, .calendar .detail div {
-  display: table-cell;
-  padding: 10px;
-  width: calc(( 900px - 60px) / 7);
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-right: 0px;
-  border-top: 0px;
-}
-.calendar .top .first, .calendar .detail .first {
-  width: 60px;
-  border-left: 0px;
-}
-.calendar .top div {
-  height: 140px;
-}
-.calendar .top div p {
-  font-size: 30px;
-  margin: 0px;
-}
-.calendar .detail .first {
-  border-color: transparent;
-  position: relative;
-}
-.calendar .detail div {
-  padding: 10px;
-  height: 100px;
-}
-.calendar .detail p {
-  color: rgba(0, 0, 0, 0.5);
-  font-weight: bold;
-  position: absolute;
-  margin: 0px 10px 0px 0px;
-  bottom: -10px;
-  right: 0px;
-}
+  position: relative; }
+  .calendar .top, .calendar .detail {
+    width: 900px;
+    position: relative; }
+    .calendar .top div, .calendar .detail div {
+      display: table-cell;
+      padding: 10px;
+      width: calc(( 900px - 60px) / 7);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-right: 0px;
+      border-top: 0px; }
+    .calendar .top .first, .calendar .detail .first {
+      width: 60px;
+      border-left: 0px; }
+  .calendar .top {
+    position: fixed;
+    background-color: #fff;
+    z-index: 100; }
+    .calendar .top div {
+      height: 140px; }
+      .calendar .top div p {
+        font-size: 30px;
+        margin: 0px; }
+  .calendar .detail {
+    top: 140px; }
+    .calendar .detail .first {
+      border-color: transparent;
+      position: relative; }
+    .calendar .detail div {
+      padding: 10px;
+      height: 100px; }
+    .calendar .detail p {
+      color: rgba(0, 0, 0, 0.5);
+      font-weight: bold;
+      position: absolute;
+      margin: 0px 10px 0px 0px;
+      bottom: -10px;
+      right: 0px; }

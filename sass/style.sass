@@ -48,6 +48,7 @@ html, body
   border-radius: 10px
   box-shadow: 10px 10px 15px rgba(0,0,0,0.3)
   overflow: scroll
+  position: relative
   .top, .detail
     width: $calendar_width
     position: relative
@@ -62,12 +63,16 @@ html, body
       width: 60px
       border-left: 0px
   .top
+    position: fixed
+    background-color: #fff
+    z-index: 100
     div
       height: 140px
       p
         font-size: 30px
         margin: 0px
   .detail
+    top: 140px
     .first
       border-color: transparent
       position: relative
