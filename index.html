@@ -17,7 +17,7 @@
 <div id="app">
   <div class="head">
     <div class="date"><i class="fa fa-bars"></i>
-      <p>June 2014</p>
+      <p>{{title}}</p>
     </div>
     <div class="buttons">
       <button class="search"><i class="fa fa-search"></i></button>
@@ -28,98 +28,32 @@
   <div class="calendar">
     <div class="top">
       <div class="first"></div>
-      <div>Mon
-        <p>1</p>
-      </div>
-      <div>Tue
-        <p>2</p>
-      </div>
-      <div>Wed
-        <p>3</p>
-      </div>
-      <div>Thu
-        <p>4</p>
-      </div>
-      <div>Fri
-        <p>5</p>
-      </div>
-      <div>Sat
-        <p>6</p>
-      </div>
-      <div>Sun
-        <p>7</p>
+      <div v-for="week in weeks">{{week.day}}
+        <p>{{week.num}}</p>
       </div>
     </div>
-    <div class="detail">
+    <div class="detail" v-for="time in times">
       <div class="first">
-        <p>9a</p>
+        <p>{{time}}</p>
       </div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-    <div class="detail">
-      <div class="first">
-        <p>10a</p>
+      <div v-for="week in weeks"> 
+        <div v-on:click="selected=time+week.dayClass" :class="selected==time+week.dayClass?'active':''">
+          <div class="work" v-for="work in works[time+week.dayClass]" v-bind:style="{background: work.color, height: work.length}">{{work.name}}</div>
+        </div>
       </div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
     </div>
-    <div class="detail">
-      <div class="first"></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-    <div class="detail">
-      <div class="first"></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-    <div class="detail">
-      <div class="first"></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-    <div class="detail">
-      <div class="first"></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
+  </div>
+  <div class="add">
+    <svg id="pic1" viewbox="-50 -50 100 100">
+      <line x1="-20" y1="0" x2="20" y2="0"></line>
+      <line x1="0" y1="-20" x2="0" y2="20"></line>
+    </svg>
   </div>
 </div>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js'></script>
 
-    <script src="js/index.js"></script>
+    <script src="js/index.js?1"></script>
 
 </body>
 </html>
