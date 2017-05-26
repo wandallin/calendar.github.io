@@ -22,7 +22,7 @@
     <div class="buttons">
       <button class="search"><i class="fa fa-search"></i></button>
       <button class="detail"><i class="fa fa-bars"></i></button>
-      <button class="cal"><i class="fa fa-calendar-o"></i></button>
+      <button class="cal" v-on:click="show_free"><i class="fa fa-calendar-o"></i></button>
     </div>
   </div>
   <div class="calendar">
@@ -39,15 +39,32 @@
       <div v-for="week in weeks"> 
         <div v-on:click="selected=time+week.dayClass" :class="selected==time+week.dayClass?'active':''">
           <div class="work" v-for="work in works[time+week.dayClass]" v-bind:style="{background: work.color, height: work.length}">{{work.name}}</div>
+          <svg id="pic2" viewbox="-50 -50 100 100" v-bind:class="{active: showFree &amp;&amp; works[time+week.dayClass]==undefined}">
+            <line x1="-20" y1="0" x2="20" y2="0"></line>
+            <line x1="0" y1="-20" x2="0" y2="20"></line>
+          </svg>
         </div>
       </div>
     </div>
   </div>
-  <div class="add">
+  <div class="add" v-on:click="showAdd">
     <svg id="pic1" viewbox="-50 -50 100 100">
       <line x1="-20" y1="0" x2="20" y2="0"></line>
       <line x1="0" y1="-20" x2="0" y2="20"></line>
     </svg>
+  </div>
+  <div class="form" v-bind:class="{active: showAd}">
+    <div class="bg"></div>
+    <div class="in">
+      <h3>事件</h3>
+      <input name="name" v-modle="newtodo.name" placeholder="輸入事件"/>
+      <h3>時間</h3>
+      <input name="len" v-modle="newtodo.len" placeholder="輸入時間"/>
+      <h3>顏色</h3>
+      <div class="color" v-for="color in colors" v-bind:style="{background: color}"></div><br/>
+      <button type="submit" v-bind:click="addnote">儲存</button>
+      <button type="submit" v-on:click="showAdd">取消</button>
+    </div>
   </div>
 </div>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>

@@ -1,17 +1,6 @@
 //取得當前時間
 var now = new Date();
 
-//事件顏色
-var workColor = ['#F58165','#FBB653', '#52DCE2', '#59DCE1'];
-
-//事件
-var works = {
-    '1a2017423': [
-      { name: 'test001', length: '40px', color: '#F58165' },
-      { name: 'test002', length: '40px', color: '#FBB653' }
-                 ]
-};
-
 //日曆的小時
 var times = ['1a','2a','3a','4a','5a','6a',
             '7a','8a','9a','10a','11a','12',
@@ -62,13 +51,27 @@ for( var a = 0; a < 7; a++ ){
 var app = new Vue({
   el: '#app',
   data: {
-    title: '',
-    weeks: weeks,
-    month: month,
-    times: times,
-    monthNow: monthNow,
-    yearNow: yearNow,
-    selected: '1a2017423'
+    title: '',    //日曆左上方年月顯示
+    weeks: weeks, //儲存星期對應的日期
+    month: month, //儲存月份的英文縮寫
+    times: times, //儲存am&pm的縮寫
+    monthNow: monthNow,  //儲存當下月份
+    yearNow: yearNow,    //儲存當下年份
+    selected: '', //判斷被選取的格子是哪一個
+    showFree: false, //判斷是否顯示空檔時間
+    colors: ['#F58165','#FBB653', '#52DCE2', '#59DCE1'],
+    newtodo: {
+      name: "", //儲存輸入的計畫名稱
+      len: "",  //儲存輸入的時間長度
+      color: "",//儲存出入的顏色
+    },
+    works: {
+    '1a2017423': [
+      { name: 'test001', length: '40px', color: '#F58165' },
+      { name: 'test002', length: '40px', color: '#FBB653' }
+      ]
+    },
+    showAd: false
   },
   mounted() {
     //計算出title的日期文字
@@ -77,5 +80,23 @@ var app = new Vue({
   },
   computed: {
     
+  },
+  methods:{
+    //顯示空檔時間
+    show_free(){
+      if(this.showFree)
+        this.showFree = false;
+      else
+        this.showFree = true;
+    },
+    addnote(){
+      
+    },
+    showAdd(){
+      if(this.showAd)
+        this.showAd = false;
+      else
+        this.showAd = true;
+    }
   }
 });
