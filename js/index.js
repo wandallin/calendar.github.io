@@ -1,3 +1,5 @@
+
+
 //取得當前時間
 var now = new Date();
 
@@ -6,6 +8,12 @@ var times = ['1a','2a','3a','4a','5a','6a',
             '7a','8a','9a','10a','11a','12',
             '1p','2p','3p','4p','5p','6p',
             '7p','8p','9p','10p','11p',''];
+
+var hour = now.getHours();
+if(hour%12 == 0)
+  hour = hour+1 + 'a'
+else
+  hour = hour%12+1 + 'p'
 
 //日曆的星期別對應的日期
 var weeks = [
@@ -57,9 +65,10 @@ var app = new Vue({
     times: times, //儲存am&pm的縮寫
     monthNow: monthNow,  //儲存當下月份
     yearNow: yearNow,    //儲存當下年份
-    selected: '', //判斷被選取的格子是哪一個
+    dayNow: now.getDate(),
+    selected: hour+yearNow+''+now.getMonth()+''+now.getDate(), //判斷被選取的格子是哪一個
     showFree: false, //判斷是否顯示空檔時間
-    colors: ['#F58165','#FBB653', '#52DCE2', '#59DCE1'],
+    colors: ['','#F58165','#FBB653', '#52DCE2', '#87D288'],
     newtodo: {
       name: "", //儲存輸入的計畫名稱
       len: "",  //儲存輸入的時間長度
@@ -90,7 +99,33 @@ var app = new Vue({
         this.showFree = true;
     },
     addnote(){
-      
+      if(this.newtodo.name == '' ||
+         this.newtodo.len  == '' ||
+         this.newtodo.color == '' ){
+        alert('請輸入完整資料');
+      }
+      else{
+       if(this.works[this.selected] == undefined){
+          this.works[this.selected] = [{
+            name: this.newtodo.name, 
+            length: this.newtodo.len * 80 + (this.newtodo.len-1)*20 + 'px', 
+            color: this.newtodo.color
+          }];
+        }
+        else{
+          this.works[this.selected].push({
+            name: this.newtodo.name, 
+            length:this.newtodo.len * 80 + (this.newtodo.len-1)*15 + 'px', 
+            color: this.newtodo.color
+          });
+        }
+
+        this.newtodo.name = '';
+        this.newtodo.len = '';
+        this.newtodo.color = '';
+
+        this.showAdd();
+      }
     },
     showAdd(){
       if(this.showAd)

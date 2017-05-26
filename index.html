@@ -29,7 +29,7 @@
     <div class="top">
       <div class="first"></div>
       <div v-for="week in weeks">{{week.day}}
-        <p>{{week.num}}</p>
+        <p v-bind:class="{active: dayNow==week.num}">{{week.num}}</p>
       </div>
     </div>
     <div class="detail" v-for="time in times">
@@ -57,12 +57,15 @@
     <div class="bg"></div>
     <div class="in">
       <h3>事件</h3>
-      <input name="name" v-modle="newtodo.name" placeholder="輸入事件"/>
+      <input name="name" v-model="newtodo.name" placeholder="輸入事件"/>
       <h3>時間</h3>
-      <input name="len" v-modle="newtodo.len" placeholder="輸入時間"/>
+      <input name="len" v-model="newtodo.len" placeholder="輸入小時數"/>
       <h3>顏色</h3>
-      <div class="color" v-for="color in colors" v-bind:style="{background: color}"></div><br/>
-      <button type="submit" v-bind:click="addnote">儲存</button>
+      <select v-model="newtodo.color">
+        <option v-for="color in colors">{{color}}</option>
+      </select>
+      <div class="color" v-bind:style="{background: newtodo.color}"></div><br/>
+      <button type="submit" v-on:click="addnote">儲存</button>
       <button type="submit" v-on:click="showAdd">取消</button>
     </div>
   </div>
@@ -70,7 +73,7 @@
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js'></script>
 
-    <script src="js/index.js"></script>
+    <script src="js/index.js?1222"></script>
 
 </body>
 </html>

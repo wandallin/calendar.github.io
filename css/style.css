@@ -12,7 +12,7 @@ html, body {
   position: fixed;
   top: 0px;
   padding: 30px;
-  z-index: 1000; }
+  z-index: 150; }
   .head .date {
     display: inline-block;
     float: left;
@@ -64,15 +64,16 @@ html, body {
       width: 60px;
       border-left: 0px; }
   .calendar .top {
-    position: absolute;
+    position: fixed;
     background-color: #fff;
     z-index: 100; }
     .calendar .top div {
       height: 140px; }
       .calendar .top div p {
         font-size: 40px;
-        margin: 0px;
-        color: #f24; }
+        margin: 0px; }
+        .calendar .top div p.active {
+          color: #f24; }
   .calendar .detail {
     top: 140px; }
     .calendar .detail .first {
@@ -84,7 +85,8 @@ html, body {
       .calendar .detail div div {
         border: 0px;
         margin: 0px;
-        padding: 5px; }
+        padding: 5px;
+        position: relative; }
         .calendar .detail div div .work {
           display: inline-block;
           border-radius: 5px;
@@ -103,6 +105,7 @@ html, body {
       right: 0px; }
 
 .add {
+  z-index: 500;
   position: fixed;
   width: 70px;
   height: 70px;
@@ -116,3 +119,58 @@ html, body {
 #pic1 {
   stroke: white;
   stroke-width: 5px; }
+
+#pic2.active {
+  stroke: white;
+  background-color: #ED5D5D;
+  stroke-width: 5px;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: 0.5s; }
+
+.form {
+  display: none; }
+  .form.active {
+    display: block; }
+  .form .in {
+    transition: 1s;
+    z-index: 200;
+    border-radius: 5px;
+    background-color: #fff;
+    position: fixed;
+    top: 150px;
+    left: 50%;
+    margin-left: -150px;
+    padding: 30px;
+    width: 300px; }
+    .form .in .colo {
+      width: 10px;
+      height: 10px; }
+    .form .in h3 {
+      margin-bottom: 2px; }
+    .form .in input {
+      width: 100%; }
+    .form .in .color {
+      width: 20px;
+      height: 20px;
+      display: inline-block;
+      position: absolute;
+      margin: 0px 10px; }
+    .form .in button {
+      cursor: pointer;
+      margin-left: auto;
+      margin-right: auto;
+      background-color: #fff;
+      width: 100px;
+      border: 1px solid;
+      margin-top: 30px; }
+
+.bg {
+  z-index: 100;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px; }
